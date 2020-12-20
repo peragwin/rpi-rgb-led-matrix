@@ -283,5 +283,26 @@ struct HardwareMapping matrix_hardware_mappings[] = {
   },
 #endif
 
+  {
+    .name = "vuzic",
+
+    .output_enable = GPIO_BIT(15),
+    .clock         = GPIO_BIT(17),
+    .strobe        = GPIO_BIT(4),
+
+    .a             = GPIO_BIT(22),
+    .b             = GPIO_BIT(23),
+    .c             = GPIO_BIT(24),
+    .d             = GPIO_BIT(25),
+    .e             = GPIO_BIT(8),
+
+    .p0_r1         = GPIO_BIT(6),
+    .p0_g1         = GPIO_BIT(27),
+    .p0_b1         = GPIO_BIT(7),
+    .p0_r2         = GPIO_BIT(5),
+    .p0_g2         = GPIO_BIT(9),
+    .p0_b2         = GPIO_BIT(26),
+  },
+
   {0}
 };

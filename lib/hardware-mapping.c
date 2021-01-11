@@ -284,24 +284,34 @@ struct HardwareMapping matrix_hardware_mappings[] = {
 #endif
 
   {
-    .name = "vuzic",
+    .name          = "vuzic",
 
-    .output_enable = GPIO_BIT(15),
+    .output_enable = GPIO_BIT(12),  /* Swap OE pin so we can use I2S */
     .clock         = GPIO_BIT(17),
     .strobe        = GPIO_BIT(4),
 
+    /* Address lines */
     .a             = GPIO_BIT(22),
     .b             = GPIO_BIT(23),
     .c             = GPIO_BIT(24),
-    .d             = GPIO_BIT(25),
-    .e             = GPIO_BIT(8),
+    .d             = GPIO_BIT(14),
+    .e             = GPIO_BIT(15),  /* RxD kept free unless 1:64 */
 
-    .p0_r1         = GPIO_BIT(6),
+    /* Parallel chain 0, RGB for both sub-panels */
+    .p0_r1         = GPIO_BIT(11),  /* masks: SPI0_SCKL  */
     .p0_g1         = GPIO_BIT(27),
-    .p0_b1         = GPIO_BIT(7),
-    .p0_r2         = GPIO_BIT(5),
-    .p0_g2         = GPIO_BIT(9),
-    .p0_b2         = GPIO_BIT(26),
+    .p0_b1         = GPIO_BIT(7),   /* masks: SPI0_CE1   */
+    .p0_r2         = GPIO_BIT(8),   /* masks: SPI0_CE0   */
+    .p0_g2         = GPIO_BIT(9),   /* masks: SPI0_MISO  */
+    .p0_b2         = GPIO_BIT(10),  /* masks: SPI0_MOSI  */
+
+    /* Chain 1 */
+    .p1_r1         = GPIO_BIT(25),
+    .p1_g1         = GPIO_BIT(5),
+    .p1_b1         = GPIO_BIT(6),
+    .p1_r2         = GPIO_BIT(26),
+    .p1_g2         = GPIO_BIT(13),
+    .p1_b2         = GPIO_BIT(16),
   },
 
   {0}

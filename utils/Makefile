@@ -36,6 +36,9 @@ led-image-viewer: led-image-viewer.o $(RGB_LIBRARY)
 video-viewer: video-viewer.o $(RGB_LIBRARY)
 	$(CXX) $(CXXFLAGS) video-viewer.o -o $@ $(LDFLAGS) $(AV_LDFLAGS)
 
+video-stream: video-stream.o $(RGB_LIBRARY)
+	$(CXX) $(CXXFLAGS) video-stream.o -o $@ $(LDFLAGS)
+
 %.o : %.cc
 	$(CXX) -I$(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
